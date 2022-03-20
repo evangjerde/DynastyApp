@@ -1,0 +1,14 @@
+<ng-container *ngIf='activities'>
+    <p>New Activity</p>
+    <div class="container-fluid text-body">
+        <div *ngFor="let activity of activities.items" class="row">
+            <div class="row" [innerHtml]='activity.timeEpochMilli | convertTimestamp'>
+            </div>
+            <div class="row" *ngIf='activity.tradeBlock' [innerHtml]='activity.tradeBlock.player.proPlayer.nameFull'>
+            </div>
+            <div class="row" *ngIf='activity.transaction'
+                [innerHtml]='activity.transaction.team.name + ": " + activity.transaction.draftPick ? activity.transaction.draftPick.season + " " + activity.transaction.draftPick.round : activity.transaction.player'>
+            </div>
+        </div>
+    </div>
+</ng-container>
