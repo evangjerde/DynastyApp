@@ -22,7 +22,7 @@ export class ConvertTimestampPipe implements PipeTransform {
 
   transform(ts: number): string {
     let date = new Date(ts * 1);
-    let dateString = `${this.monthMap[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()} `
+    let dateString = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}  ${this.monthMap[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()} `
     return dateString;
   }
 

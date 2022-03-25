@@ -1,0 +1,31 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+@media only screen and (min-width: 768px) {
+    li {
+        text-align-last: right;
+    }
+}
+
+li a {
+    display: block;
+    padding: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: forestgreen;
+}
+
+centered {
+    align-items: center;
+}
