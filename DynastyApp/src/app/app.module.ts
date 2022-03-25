@@ -8,13 +8,19 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivityLogComponent } from './components/activity-log/activity-log.component';
 import { PipesModule } from './pipes/pipes.module';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FooterComponent } from './footer/footer.component';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OwnersComponent,
     HomepageComponent,
-    ActivityLogComponent
+    ActivityLogComponent,
+    NavBarComponent,
+    FooterComponent,
+    LogoComponent
   ],
   imports: [
     HttpClientModule,
