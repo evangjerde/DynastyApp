@@ -1,4 +1,4 @@
-import { FleaflickerTeam, FleaflickerPlayer, FleaflickerDraftPick } from "src/app/fleaflicker.model";
+import { FleaflickerTeam, FleaflickerPlayer, FleaflickerDraftPick } from "src/app/models/fleaflicker.model";
 
 export class ActivityResponse {
     items: Activity[];

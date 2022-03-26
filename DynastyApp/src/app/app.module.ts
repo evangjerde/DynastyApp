@@ -11,6 +11,7 @@ import { PipesModule } from './pipes/pipes.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoComponent } from './logo/logo.component';
+import { OwnerComponent } from './owners/owner/owner.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LogoComponent } from './logo/logo.component';
     ActivityLogComponent,
     NavBarComponent,
     FooterComponent,
-    LogoComponent
+    LogoComponent,
+    OwnerComponent
   ],
   imports: [
     HttpClientModule,

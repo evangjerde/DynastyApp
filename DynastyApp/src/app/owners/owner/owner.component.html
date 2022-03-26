@@ -1,0 +1,11 @@
+<div class="mt-3 container">
+    <div class="row">
+        <div class="col-4 p-2 flex" [ngStyle]="{ 'order': order }">
+            <img height="100%" [src]="owner.photoUrl" [alt]="owner.name">
+        </div>
+        <div class="col-8 p-2 flex" [ngStyle]="{ 'order': order % 2 }">
+            <h1 class="pb-2 owner-name" [innerHtml]="owner.name"></h1>
+            <h4 class="pb-3" [innerHtml]="owner.team"></h4>
+            <p [innerHtml]="owner.bio"></p>
+        </div>
+    </div>

@@ -1,0 +1,12 @@
+.container {
+    background-color: rgb(167, 160, 160);
+}
+
+.owner-name {
+    text-decoration-line: underline;
+}
+
+.flex {
+    display: flex;
+    flex-flow: column;
+}
