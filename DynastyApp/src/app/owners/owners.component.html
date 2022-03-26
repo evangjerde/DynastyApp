@@ -1,1 +1,10 @@
-<p>owners works!</p>
+<div class="header">
+    <h1>Dynasty Vol. II Owners</h1>
+</div>
+<div class="bg-black">
+    <ng-container *ngIf="owners">
+        <div class="row" *ngFor="let owner of owners; let i = index">
+            <app-owner [owner]="owner" [order]="i % 2 + 1"></app-owner>
+        </div>
+    </ng-container>
+</div>
