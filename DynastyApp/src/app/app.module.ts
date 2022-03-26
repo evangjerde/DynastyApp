@@ -10,8 +10,10 @@ import { ActivityLogComponent } from './components/activity-log/activity-log.com
 import { PipesModule } from './pipes/pipes.module';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
-import { LogoComponent } from './logo/logo.component';
+import { LogoComponent } from './components/logo/logo.component';
 import { OwnerComponent } from './owners/owner/owner.component';
+import { NflNewsComponent } from './components/nfl-news/nfl-news.component';
+import { SeasonLeadersComponent } from './components/season-leaders/season-leaders.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { OwnerComponent } from './owners/owner/owner.component';
     NavBarComponent,
     FooterComponent,
     LogoComponent,
-    OwnerComponent
+    OwnerComponent,
+    NflNewsComponent,
+    SeasonLeadersComponent
   ],
   imports: [
     HttpClientModule,

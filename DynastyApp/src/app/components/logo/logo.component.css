@@ -1,0 +1,34 @@
+:root {
+    --icon-xs: 16px;
+    --icon-sm: 24px;
+    --icon-md: 32px;
+    --icon-lg: 64px;
+    --icon-xl: 128px;
+}
+
+.css-1j8o68f {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%
+}
+
+.xs {
+    height: var(--icon-xs);
+}
+
+.sm {
+    height: var(--icon-sm);
+}
+
+.md {
+    height: var(--icon-md);
+}
+
+.lg {
+    height: var(--icon-lg);
+}
+
+.xl {
+    height: var(--icon-xl);
+}
