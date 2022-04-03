@@ -14,4 +14,9 @@ export class AppController {
   getActivityFeed() {
     return this.appService.getActivity();
   }
+
+  @Get('newsFeed')
+  getNewsFeed() {
+    return this.appService.getNewsFeed();
+  }
 }

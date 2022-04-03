@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueService } from 'src/app/league.service';
+import { LeagueService } from 'src/app/services/league.service';
 import { TradeBlockAction, TradeAction, ActivityResponse, Activity } from './activity-log.model';
 
 @Component({
@@ -36,7 +36,7 @@ export class ActivityLogComponent implements OnInit {
           tradeMap[tradeId] = tradeMap[tradeId] || {};
           let teamAssets = tradeMap[tradeId][teamName] || {};
           teamAssets
-          
+
         }
       })
     }
