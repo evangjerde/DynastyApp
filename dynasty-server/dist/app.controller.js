@@ -22,6 +22,9 @@ let AppController = class AppController {
     getActivityFeed() {
         return this.appService.getActivity();
     }
+    getNewsFeed() {
+        return this.appService.getNewsFeed();
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -35,6 +38,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "getActivityFeed", null);
+__decorate([
+    (0, common_1.Get)('newsFeed'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getNewsFeed", null);
 AppController = __decorate([
     (0, common_1.Controller)('api'),
     __metadata("design:paramtypes", [app_service_1.AppService])

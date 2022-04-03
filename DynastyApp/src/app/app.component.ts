@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LeagueService } from './league.service';
-import { ScoresService } from './scores.service';
+import { LeagueService } from './services/league.service';
+import { ScoresService } from './services/scores.service';
 
 @Component({
   selector: 'app-root',

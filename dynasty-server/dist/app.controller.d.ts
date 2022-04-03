@@ -4,4 +4,5 @@ export declare class AppController {
     constructor(appService: AppService);
     getHello(): string;
     getActivityFeed(): any;
+    getNewsFeed(): any;
 }
