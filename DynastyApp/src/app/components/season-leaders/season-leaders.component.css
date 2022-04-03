@@ -1,0 +1,33 @@
+.container {
+    max-width: 100%;
+}
+
+.leader-row {
+    max-width: 90%;
+    margin: auto;
+}
+
+.headshot {
+    height: 50px;
+    justify-content: left;
+}
+
+.leader-stats {
+    display: flex;
+}
+
+.leader {
+    display: flex;
+}
+
+@media only screen and (min-width: 768px) {
+    .outer-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+
+    .card {
+        margin: auto;
+    }
+}
