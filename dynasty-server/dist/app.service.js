@@ -17,12 +17,18 @@ let AppService = class AppService {
     constructor(httpService) {
         this.httpService = httpService;
         this.ffBaseUrl = 'https://www.fleaflicker.com/api';
+        this.espnBaseUrl = 'https://www.espn.com/espn';
     }
     getHello() {
         return 'Hello World!';
     }
     getActivity() {
         return this.httpService.get(`${this.ffBaseUrl}/FetchLeagueActivity?sport=NFL&league_id=309764`).pipe((0, rxjs_1.map)((axiosResponse) => {
+            return axiosResponse.data;
+        }));
+    }
+    getNewsFeed() {
+        return this.httpService.get(`${this.espnBaseUrl}/rss/nfl/news`).pipe((0, rxjs_1.map)((axiosResponse) => {
             return axiosResponse.data;
         }));
     }

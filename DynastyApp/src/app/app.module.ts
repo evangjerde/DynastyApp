@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,8 @@ import { LogoComponent } from './components/logo/logo.component';
 import { OwnerComponent } from './owners/owner/owner.component';
 import { NflNewsComponent } from './components/nfl-news/nfl-news.component';
 import { SeasonLeadersComponent } from './components/season-leaders/season-leaders.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 
 @NgModule({
   declarations: [
@@ -26,13 +29,16 @@ import { SeasonLeadersComponent } from './components/season-leaders/season-leade
     LogoComponent,
     OwnerComponent,
     NflNewsComponent,
-    SeasonLeadersComponent
+    SeasonLeadersComponent,
+    CarouselComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    PipesModule
+    PipesModule,
+    BrowserAnimationsModule,
+    MdbCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
