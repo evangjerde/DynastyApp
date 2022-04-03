@@ -1,1 +1,23 @@
-<p>season-leaders works!</p>
+<div class="container outer-container bg-black mx-0">
+    <div class="stat-card col-md-6" *ngFor="let category of statCategories">
+        <div class="card bg-white mx-md-3 mb-3">
+            <h2 [innerHtml]="category.name"></h2>
+            <div class="container">
+                <div class="leader-row row mb-1" [ngStyle]="getBackground(leader)"
+                    *ngFor="let leader of category.leaders | slice:0:5; let i = index">
+                    <h5 class="col-1" [ngStyle]="getStyle(leader)" [innerHtml]="i+1"></h5>
+                    <div class="leader-stats px-0 col-11">
+                        <div class="leader col-10">
+                            <img class="headshot" [src]="leader.athlete.headshot.href"
+                                [alt]="leader.athlete.headshot.alt">
+                            <p [ngStyle]="getStyle(leader)" [innerHtml]="leader.athlete.displayName"></p>
+                        </div>
+                        <div class="col-2">
+                            <p [ngStyle]="getStyle(leader, true)" [innerHtml]="leader.displayValue"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
