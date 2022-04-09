@@ -1,6 +1,6 @@
 <div class="container outer-container bg-black mx-0">
     <div class="stat-card col-md-6" *ngFor="let category of statCategories">
-        <div class="card bg-white mx-md-3 mb-3">
+        <div class="card mx-md-3 mb-3">
             <h2 [innerHtml]="category.name"></h2>
             <div class="container">
                 <div class="leader-row row mb-1" [ngStyle]="getBackground(leader)"
@@ -13,7 +13,7 @@
                             <p [ngStyle]="getStyle(leader)" [innerHtml]="leader.athlete.displayName"></p>
                         </div>
                         <div class="col-2">
-                            <p [ngStyle]="getStyle(leader, true)" [innerHtml]="leader.displayValue"></p>
+                            <strong [ngStyle]="getStyle(leader, true)" [innerHtml]="leader.displayValue"></strong>
                         </div>
                     </div>
                 </div>
