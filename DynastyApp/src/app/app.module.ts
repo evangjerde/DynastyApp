@@ -17,6 +17,7 @@ import { NflNewsComponent } from './components/nfl-news/nfl-news.component';
 import { SeasonLeadersComponent } from './components/season-leaders/season-leaders.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+import { NflPageComponent } from './nfl-page/nfl-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
     OwnerComponent,
     NflNewsComponent,
     SeasonLeadersComponent,
-    CarouselComponent
+    CarouselComponent,
+    NflPageComponent
   ],
   imports: [
     HttpClientModule,
