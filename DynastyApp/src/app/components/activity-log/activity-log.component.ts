@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeagueService } from 'src/app/services/league.service';
-import { TradeBlockAction, TradeAction, ActivityResponse, Activity } from './activity-log.model';
+import { TradeBlockAction, TradeAction, ActivityResponse, Activity, TransactionAction } from './activity-log.model';
 
 @Component({
   selector: 'app-activity-log',
@@ -57,7 +57,8 @@ export class ActivityLogComponent implements OnInit {
     return `${retString} the trading block.`
   }
 
-  transactionAction(action: TradeAction) {
+  transactionAction(action: TransactionAction) {
+    console.log(action);
 
     'activity.transaction.team.name + ": " + activity.transaction.draftPick ? activity.transaction.draftPick.season + " " + activity.transaction.draftPick.round : activity.transaction.player'
   }
