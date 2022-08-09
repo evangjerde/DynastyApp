@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="row mt-0">
+    <div class="inner-container">
+      <div *ngFor="let side of tradeSides" class="mb-2 px-2" [ngClass]="getColCount()">
+        <strong [innerHtml]="side.team.name + ' got:'"></strong>
+        <div class="container-fluid">
+          <div class="row tab" *ngFor="let player of side.players" [innerHtml]="formatPlayer(player)"></div>
+          <div class="row tab" *ngFor="let pick of side.picks" [innerHtml]="formatPick(pick)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

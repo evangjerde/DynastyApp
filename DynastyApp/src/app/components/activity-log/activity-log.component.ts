@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeagueService } from 'src/app/services/league.service';
-import { TradeBlockAction, TradeAction, ActivityResponse, Activity, TransactionAction } from './activity-log.model';
+import { TradeBlockAction, TradeAction, ActivityResponse, Activity, TransactionAction, FormattedActivity, TradeSide } from './activity-log.model';
 
 @Component({
   selector: 'app-activity-log',
@@ -8,38 +8,96 @@ import { TradeBlockAction, TradeAction, ActivityResponse, Activity, TransactionA
   styleUrls: ['./activity-log.component.css'],
 })
 export class ActivityLogComponent implements OnInit {
-  private readonly TRADE_ACTION = 'TRANSACTION_TRADE';
+  activities: FormattedActivity[];
 
-  activities: ActivityResponse;
+  readonly COMMISH = 'COMMISH';
+  readonly TRADE_BLOCK = 'TRADE_BLOCK';
+  readonly SETTING = 'SETTING';
+  readonly INVALID = 'INVALID';
+  readonly TRADE_ACTION = 'TRANSACTION_TRADE';
 
   constructor(private leagueService: LeagueService) { }
 
   ngOnInit(): void {
     this.leagueService.getActivityFeed().subscribe(
-      (result) => {
-        let filteredActivities = this.condenseTrades(result);
+      (result: ActivityResponse) => {
+        let filteredActivities = this.formatActivities(result);
         this.activities = filteredActivities;
-        console.log(result);
+        console.log(this.activities);
       });
   }
 
-  condenseTrades(activities: ActivityResponse): ActivityResponse {
-    let tradeMap = {};
-    if (activities.items.some(activity => activity.transaction?.type === this.TRADE_ACTION)) {
-      activities.items.forEach(activity => {
-        if (activity.transaction?.type === this.TRADE_ACTION) {
-          let tradeId = activity.transaction.tradeId;
-          let teamName = activity.transaction.team.name;
-          let player = activity.transaction.player;
-          let pick = activity.transaction.draftPick;
+  formatActivities (activityResponse: ActivityResponse): FormattedActivity[] {
+    let formattedActivities: FormattedActivity[] = []
+    activityResponse.items?.forEach((activity) => {
+      let activityType = this.determineActivityType(activity);
+      let formattedActivity: FormattedActivity = {timeEpochMilli: activity.timeEpochMilli, activityType: activityType};
 
-          tradeMap[tradeId] = tradeMap[tradeId] || {};
-          let teamAssets = tradeMap[tradeId][teamName] || {};
-          teamAssets
+      switch (activityType) {
+      case this.COMMISH:
+        formattedActivity.commishPowers = activity.commishPowers;
+        formattedActivities.push(formattedActivity);
+        break;
+      case this.TRADE_BLOCK:
+        formattedActivity.tradeBlock = activity.tradeBlock;
+        formattedActivities.push(formattedActivity);
+        break;
+      case this.SETTING:
+        formattedActivity.settings = activity.settings;
+        formattedActivities.push(formattedActivity);
+        break;
+      case this.TRADE_ACTION:
+        formattedActivities = this.condenseTrade(formattedActivity, activity, formattedActivities);
+      }
+    })
 
-        }
-      })
+    return formattedActivities;
+  }
+  
+  determineActivityType(activity: Activity): string {
+    return activity.commishPowers ?
+      this.COMMISH : activity.tradeBlock ?
+        this.TRADE_BLOCK : activity.settings ?
+          this.SETTING : activity.transaction ?
+            activity.transaction.type : this.INVALID;
+  }
+
+  condenseTrade(fmtAct: FormattedActivity, act: Activity, activities: FormattedActivity[]): FormattedActivity[] {
+    let currentTrade = activities.filter(activity => activity.activityType === this.TRADE_ACTION).find(activity => activity.trade.tradeId === act.transaction.tradeId)
+
+    let existingTrade = !!currentTrade;
+
+    if (!existingTrade) {
+      currentTrade = fmtAct;
+      currentTrade.trade = {
+        tradeId: act.transaction.tradeId,
+        sides: {}
+      };
     }
+
+    let side: TradeSide;
+    
+    if (!currentTrade.trade.sides[act.transaction.team.id]) {
+      side = {
+        team: act.transaction.team,
+        players: [],
+        picks: []
+      };
+    } else {
+      side = currentTrade.trade.sides[act.transaction.team.id];
+    }
+    if (act.transaction.draftPick) {
+      side.picks.push(act.transaction.draftPick);
+    }
+    if (act.transaction.player) {
+      side.players.push(act.transaction.player);
+    }
+    currentTrade.trade.sides[side.team.id] = side;
+
+    if (!existingTrade) {
+      activities.push(currentTrade);
+    }
+
     return activities;
   }
 

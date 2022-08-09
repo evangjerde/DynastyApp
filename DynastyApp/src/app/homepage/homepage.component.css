@@ -1,8 +1,7 @@
-.section1 {
-    background-color: black;
-    height: 600px;
-}
-
-.section2 {
-    background-color: black;
+.container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    min-width: 100%;
 }
