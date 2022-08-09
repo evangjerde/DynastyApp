@@ -7,10 +7,20 @@ export class ActivityResponse {
 
 export class Activity {
     timeEpochMilli: number;
-    tradeBlock: TradeBlockAction;
-    transaction: TransactionAction;
-    commishPowers: any;
-    settings: any;
+    transaction?: TransactionAction;
+    tradeBlock?: TradeBlockAction;
+    commishPowers?: CommishAction;
+    settings?: any;
+}
+
+export class FormattedActivity {
+    timeEpochMilli: number;
+    activityType: string;
+    trade?: TradeAction;
+    transaction?: TransactionAction;
+    tradeBlock?: TradeBlockAction;
+    commishPowers?: CommishAction;
+    settings?: any;
 }
 
 export class TradeBlockAction {
@@ -28,5 +38,21 @@ export class TransactionAction {
 
 export class TradeAction {
     tradeId: number;
+    sides: {[key: number]: TradeSide};
+}
 
+export class TradeSide {
+    team: FleaflickerTeam;
+    picks: FleaflickerDraftPick[];
+    players: FleaflickerPlayer[];
+}
+
+export class CommishAction {
+    commish: {
+        id: number;
+        initials: string;
+        name: string;
+    };
+    description: string;
+    tradeId?: number;
 }

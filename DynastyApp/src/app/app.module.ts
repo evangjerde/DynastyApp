@@ -18,6 +18,7 @@ import { SeasonLeadersComponent } from './components/season-leaders/season-leade
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { NflPageComponent } from './nfl-page/nfl-page.component';
+import { TradeActionComponent } from './components/activity-log/trade-action/trade-action.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NflPageComponent } from './nfl-page/nfl-page.component';
     NflNewsComponent,
     SeasonLeadersComponent,
     CarouselComponent,
-    NflPageComponent
+    NflPageComponent,
+    TradeActionComponent
   ],
   imports: [
     HttpClientModule,

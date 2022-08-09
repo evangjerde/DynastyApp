@@ -1,0 +1,11 @@
+.tab {
+    margin-left: 2rem;
+}
+
+@media only screen and (min-width: 576px) {
+    .inner-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+}

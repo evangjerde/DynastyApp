@@ -1,15 +1,14 @@
 <ng-container *ngIf="activities" class="activity-container">
     <p class="text-white">New Activity</p>
     <div class="container-fluid text-body">
-        <div *ngFor="let activity of activities.items">
-            <div class="row mb-2 trade-action">
+        <div *ngFor="let activity of activities">
+            <div class="row mb-2 trade-action" [ngSwitch]="activity.activityType">
                 <div [innerHtml]="activity.timeEpochMilli | convertTimestamp"></div>
-                <div class="row pb-2" *ngIf="activity.tradeBlock" [innerHtml]="tradeBlockAction(activity.tradeBlock)">
+                <div class="row pb-2" *ngSwitchCase="TRADE_BLOCK" [innerHtml]="tradeBlockAction(activity.tradeBlock)">
                 </div>
-                <div class=" row pb-2" *ngIf="activity.transaction"
-                    [innerHtml]="transactionAction(activity.transaction)">
+                <div class="row pb-2" *ngSwitchCase="TRADE_ACTION">
+                    <app-trade-action [activity]="activity"></app-trade-action>
                 </div>
-                <!-- <div calss="row pb-2" *ngIf="activity." -->
             </div>
         </div>
     </div>
