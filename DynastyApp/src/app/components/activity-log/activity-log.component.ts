@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeagueService } from 'src/app/services/league.service';
-import { TradeBlockAction, TradeAction, ActivityResponse, Activity, TransactionAction, FormattedActivity, TradeSide } from './activity-log.model';
+import { TradeBlockAction, TradeAction, ActivityResponse, Activity, TransactionAction, FormattedActivity, TradeSide, CommishAction } from './activity-log.model';
 
 @Component({
   selector: 'app-activity-log',
@@ -13,6 +13,7 @@ export class ActivityLogComponent implements OnInit {
   readonly COMMISH = 'COMMISH';
   readonly TRADE_BLOCK = 'TRADE_BLOCK';
   readonly SETTING = 'SETTING';
+  readonly RESERVE_CHANGE = 'RESERVE_CHANGE';
   readonly INVALID = 'INVALID';
   readonly TRADE_ACTION = 'TRANSACTION_TRADE';
 
@@ -30,6 +31,7 @@ export class ActivityLogComponent implements OnInit {
   formatActivities (activityResponse: ActivityResponse): FormattedActivity[] {
     let formattedActivities: FormattedActivity[] = []
     activityResponse.items?.forEach((activity) => {
+      console.log(activity);
       let activityType = this.determineActivityType(activity);
       let formattedActivity: FormattedActivity = {timeEpochMilli: activity.timeEpochMilli, activityType: activityType};
 
@@ -58,8 +60,9 @@ export class ActivityLogComponent implements OnInit {
     return activity.commishPowers ?
       this.COMMISH : activity.tradeBlock ?
         this.TRADE_BLOCK : activity.settings ?
-          this.SETTING : activity.transaction ?
-            activity.transaction.type : this.INVALID;
+          this.SETTING : activity.reserveChange ?
+            this.RESERVE_CHANGE: activity.transaction ?
+              activity.transaction.type : this.INVALID;
   }
 
   condenseTrade(fmtAct: FormattedActivity, act: Activity, activities: FormattedActivity[]): FormattedActivity[] {
@@ -114,11 +117,4 @@ export class ActivityLogComponent implements OnInit {
     }
     return `${retString} the trading block.`
   }
-
-  transactionAction(action: TransactionAction) {
-    console.log(action);
-
-    'activity.transaction.team.name + ": " + activity.transaction.draftPick ? activity.transaction.draftPick.season + " " + activity.transaction.draftPick.round : activity.transaction.player'
-  }
-
 }
