@@ -11,6 +11,7 @@ export class Activity {
     tradeBlock?: TradeBlockAction;
     commishPowers?: CommishAction;
     settings?: any;
+    reserveChange?: any;
 }
 
 export class FormattedActivity {
@@ -21,6 +22,7 @@ export class FormattedActivity {
     tradeBlock?: TradeBlockAction;
     commishPowers?: CommishAction;
     settings?: any;
+    reserveChange?: any;
 }
 
 export class TradeBlockAction {
