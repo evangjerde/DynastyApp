@@ -7,7 +7,9 @@ COPY package*.json ./
 
 RUN npm i
 
-COPY ./dist .
+COPY ./dist ./dist
+
+RUN ls -al
 
 EXPOSE 8080
 CMD [ "node", "dist/main" ]

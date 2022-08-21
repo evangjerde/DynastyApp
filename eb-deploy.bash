@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-appName="DynastyV2"
-envBaseName="dynastyv2"
+appName="dynasty-app"
+envBaseName="dynasty-app"
 envPattern="test|live"
 fileList=( 'Dockerrun.aws.json' '.ebextensions/*' )
 
@@ -30,7 +30,7 @@ fi
 localEnv="${envBaseName}-${1}"
 # shellcheck disable=SC2086,SC2002
 distLabel="${2}-$(cat ${fileList[*]} | shasum | perl -ne 'print $1 if /^([^\s]+).+/')"
-s3Bucket="elasticbeanstalk-us-west-2-982523169217"
+s3Bucket="elasticbeanstalk-us-east-2-982523169217"
 s3Key="${appName}/${distLabel}.zip"
 
 [[ -f ${appName}.zip ]] && rm "${appName}.zip"

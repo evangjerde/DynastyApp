@@ -30,8 +30,7 @@ gulp.task('docker:generateDockerrun', function (callback) {
                 AWSEBDockerrunVersion: '1',
                 Image: {
                     Name:
-                        '982523169217.dkr.ecr.us-east-2.amazonaws.com/dynastyv2:' +
-                        config.gitRef,
+                        '982523169217.dkr.ecr.us-east-2.amazonaws.com/dynasty-app:latest',
                     Update: 'true',
                 },
                 Ports: [
@@ -54,34 +53,34 @@ gulp.task('docker:generateDockerrun', function (callback) {
 gulp.task(
     'shell:docker:build',
     shell.task(
-        'docker build --tag 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynastyv2:latest ./'
+        'docker build --tag 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynasty-app:latest ./'
     )
 );
 
 gulp.task(
     'shell:docker:tag',
     shell.task(
-        'docker tag 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynastyv2:latest 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynastyv2:' +
-            config.gitRef
+        'docker tag 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynasty-app:latest 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynasty-app:' +
+        config.gitRef
     )
 );
 
 gulp.task(
     'shell:docker:ecrLogin',
-    shell.task('docker login --username evan@evangjerde.com --password Lpuc1885cqdy.')
+    shell.task('aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 982523169217.dkr.ecr.us-east-2.amazonaws.com')
 );
 
 gulp.task(
     'shell:docker:push',
     shell.task(
-        'docker push 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynastyv2:latest && docker push 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynastyv2:' +
-            config.gitRef
+        'docker push 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynasty-app:latest && docker push 982523169217.dkr.ecr.us-east-2.amazonaws.com/dynasty-app:' +
+        config.gitRef
     )
 );
 
 gulp.task(
     'shell:docker:deploy',
-    shell.task('./eb-deploy.bash live ' + config.gitRef)
+    shell.task('./eb-deploy.bash live v1')
 );
 
 /**
@@ -90,7 +89,7 @@ gulp.task(
 gulp.task('deploy', function (callback) {
     runSequence(
         'shell:docker:build',
-        // 'shell:docker:ecrLogin',
+        'shell:docker:ecrLogin',
         'shell:docker:tag',
         'shell:docker:push',
         'docker:generateDockerrun',

@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "main", "ActivityLog" ]
   pull_request:
     branches: [ "main" ]
 
@@ -28,8 +28,17 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build Projecdt
+      - name: Configure AWS
+        run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} --profile default && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile default && aws configure set region us-east-2 --profile default
+
+      - name: Mod Files
+        run: chmod 777 eb-deploy.bash
+
+      - name: Check Files
+        run: ls -al
+
+      - name: Build Project
         run: npm run build
         
       - name: Run Gulp
-        run: node/modules/.bin/gulp deploy --env live
+        run: node_modules/.bin/gulp deploy --env live
