@@ -3,15 +3,27 @@
         <div *ngFor="let activity of activities">
             <div class="row mb-2 trade-action" [ngSwitch]="activity.activityType">
                 <div [innerHtml]="activity.timeEpochMilli | convertTimestamp"></div>
-                <div class="row pb-2 tab" *ngSwitchCase="TRADE_BLOCK" [innerHtml]="tradeBlockAction(activity.tradeBlock)">
+                <div class="row pb-2 tab" *ngSwitchCase="TRADE_BLOCK"
+                    [innerHtml]="tradeBlockAction(activity.tradeBlock)">
                 </div>
-                <div class="row pb-2 tab" *ngSwitchCase="RESERVE_CHANGE" [innerHtml]="activity.commishPowers.description"></div>
-                <div class="row pb-2 tab" *ngSwitchCase="COMMISH" [innerHtml]="activity.commishPowers.description"></div>
+                <div class="row pb-2 tab" *ngSwitchCase="COMMISH" [innerHtml]="activity.commishPowers.description">
+                </div>
+                <div class="row pb-2 tab" *ngSwitchCase="COMMISH" [innerHtml]="activity.commishPowers.description">
+                </div>
+                <div class="row pb-2 tab" *ngSwitchCase="SETTING" [innerHtml]="activity.settings.description"></div>
+                <div class="row pb-2 tab" *ngSwitchCase="RESERVE_CHANGE"
+                    [innerHtml]="reserveChangeAction(activity.reserveChange)"></div>
                 <div class="row pb-2" *ngSwitchCase="TRADE_ACTION">
                     <app-trade-action [activity]="activity"></app-trade-action>
                 </div>
+                <div class="row pb-2 tab" *ngSwitchCase="ADD_ACTION" [innerHtml]="waiverAction(activity.transaction)">
+                </div>
+                <div class="row pb-2 tab" *ngSwitchCase="DROP_ACTION" [innerHtml]="waiverAction(activity.transaction)">
+                </div>
+                <div class="row pb-2 tab" *ngSwitchCase="CLAIM_ACTION" [innerHtml]="waiverAction(activity.transaction)">
+                </div>
                 <div class="row pb-2" *ngSwitchCase="">
-                    
+
                 </div>
             </div>
         </div>
