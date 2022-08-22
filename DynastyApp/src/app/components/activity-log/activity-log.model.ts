@@ -1,3 +1,4 @@
+import { KeyValueDifferFactory } from "@angular/core";
 import { FleaflickerTeam, FleaflickerPlayer, FleaflickerDraftPick } from "src/app/models/fleaflicker.model";
 
 export class ActivityResponse {
@@ -32,15 +33,18 @@ export class TradeBlockAction {
 
 export class TransactionAction {
     type: string;
-    tradeId: number;
-    draftPick: FleaflickerDraftPick;
+    tradeId?: number;
+    draftPick?: FleaflickerDraftPick;
     player: FleaflickerPlayer;
     team: FleaflickerTeam;
+    waiverResolutionTeams?: {
+        team: FleaflickerTeam;
+    }[];
 }
 
 export class TradeAction {
     tradeId: number;
-    sides: {[key: number]: TradeSide};
+    sides: { [key: number]: TradeSide };
 }
 
 export class TradeSide {
@@ -57,4 +61,10 @@ export class CommishAction {
     };
     description: string;
     tradeId?: number;
+}
+
+export class ReserveChange {
+    player: FleaflickerPlayer;
+    taxi: boolean;
+    team: FleaflickerTeam;
 }
