@@ -4,10 +4,12 @@
     </div>
 </div>
 
-<div class="container bg-black">
-    <ul>
-        <li *ngFor="let article of articles">
-            <a [routerLink]="article.path">{{ article.title }}</a>
-        </li>
-    </ul>
+<div class="bg-black d-flex">
+    <div class="container articles">
+        <ul>
+            <li *ngFor="let article of articles">
+                <a [routerLink]="article.path">{{ article.title }}</a>
+            </li>
+        </ul>
+    </div>
 </div>
