@@ -19,6 +19,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { NflPageComponent } from './nfl-page/nfl-page.component';
 import { TradeActionComponent } from './components/activity-log/trade-action/trade-action.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { Rankings2022PsComponent } from './articles/rankings2022-ps/rankings2022-ps.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { TradeActionComponent } from './components/activity-log/trade-action/tra
     SeasonLeadersComponent,
     CarouselComponent,
     NflPageComponent,
-    TradeActionComponent
+    TradeActionComponent,
+    ArticlesComponent,
+    Rankings2022PsComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,13 @@
+<div class="header bg-black pb-4">
+    <div class="center">
+        <app-logo [height]="400" [color]="'silver'"></app-logo>
+    </div>
+</div>
+
+<div class="container bg-black">
+    <ul>
+        <li *ngFor="let article of articles">
+            <a [routerLink]="article.path">{{ article.title }}</a>
+        </li>
+    </ul>
+</div>
