@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Owner } from 'src/app/models/owner.model';
+import { FleaflickerStandingTeam } from '../owners.model';
 
 @Component({
   selector: 'app-owner',
@@ -9,6 +10,7 @@ import { Owner } from 'src/app/models/owner.model';
 export class OwnerComponent implements OnInit {
 
   @Input() owner: Owner;
+  @Input() team: FleaflickerStandingTeam;
   @Input() order: number = 1;
 
   constructor() { }
@@ -16,4 +18,11 @@ export class OwnerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getImage(): string {
+    return this.owner?.photoUrl || this.team?.logoUrl || '../../../assets/football-helmet.webp';
+  }
+
+  getOwner(): string {
+    return this.owner?.name || this.team?.owners[0]?.displayName;
+  }
 }

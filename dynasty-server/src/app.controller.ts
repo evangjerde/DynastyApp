@@ -19,4 +19,9 @@ export class AppController {
   getNewsFeed() {
     return this.appService.getNewsFeed();
   }
+
+  @Get('teams')
+  getTeams() {
+    return this.appService.getTeams();
+  }
 }

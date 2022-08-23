@@ -15,4 +15,8 @@ export class LeagueService {
   getActivityFeed(): Observable<any> {
     return this.http.get(`${this.baseUrl}/activity`);
   }
+
+  getLeagueTeams(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/teams`);
+  }
 }

@@ -9,8 +9,9 @@ export class FleaflickerPlayer {
 
 export class FleaflickerTeam {
     id: number;
-    initial: string;
+    initials: string;
     name: string;
+    logoUrl?: string;
 }
 
 export class FleaflickerDraftPick {

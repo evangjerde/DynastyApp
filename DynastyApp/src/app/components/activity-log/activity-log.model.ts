@@ -1,4 +1,3 @@
-import { KeyValueDifferFactory } from "@angular/core";
 import { FleaflickerTeam, FleaflickerPlayer, FleaflickerDraftPick } from "src/app/models/fleaflicker.model";
 
 export class ActivityResponse {

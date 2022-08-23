@@ -1,10 +1,13 @@
 <div class="header">
-    <h1>Dynasty Vol. II Owners</h1>
+    <h1 [innerHtml]="getPageTitle()"></h1>
 </div>
 <div class="bg-black">
-    <ng-container *ngIf="owners">
-        <div class="row" *ngFor="let owner of owners; let i = index">
-            <app-owner [owner]="owner" [order]="i % 2 + 1"></app-owner>
-        </div>
+    <ng-container *ngIf="standings">
+        <ng-container *ngFor="let division of standings.divisions">
+            <h1 class="text-white" [innerHtml]="division.name"></h1>
+            <ng-container *ngFor="let team of division.teams; let i = index">
+                <app-owner [owner]="getOwner(team.name)" [team]="team" [order]="i % 2 + 1"></app-owner>
+            </ng-container>
+        </ng-container>
     </ng-container>
 </div>
