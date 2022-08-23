@@ -22,7 +22,6 @@ export class SeasonLeadersComponent implements OnInit {
         const categories = this.leaders.leaders.categories;
 
         categories.forEach(category => {
-          console.log(category.displayName);
           if (offensiveStats.includes(category.displayName)) {
             this.statCategories.push({
               name: category.displayName,
