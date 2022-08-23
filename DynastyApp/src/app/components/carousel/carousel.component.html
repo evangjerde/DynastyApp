@@ -1,14 +1,12 @@
-<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" [controls]=true>
-    <mdb-carousel-item *ngFor="let item of items">
-        <div class="view w-100">
-            <img class="d-block w-100 text-white" [src]="item.image" [alt]="item.title">
-        </div>
-        <div class="carousel-caption backdrop">
+<mdb-carousel class="carousel slide carousel-fade d-flex" [animation]="'fade'" [controls]=true>
+    <mdb-carousel-item class="container center" *ngFor=" let item of items">
+        <img class="full-width text-white" [src]="item.image" [alt]="item.title">
+        <span class="caption full-caption">
             <h4 class="h4-responsive">
                 <a class="white-link" *ngIf="item.link" [href]="item.link" [innerHtml]="item.title"></a>
                 <span *ngIf="!item.link" [innerHtml]="item.title"></span>
             </h4>
             <p *ngIf="item.description" [innerHtml]="item.description"></p>
-        </div>
+        </span>
     </mdb-carousel-item>
 </mdb-carousel>

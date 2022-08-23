@@ -25,6 +25,7 @@ export class NflNewsComponent implements OnInit {
     this.espnFeed.getNewsFeed().subscribe(
       (result) => {
         let data = new window.DOMParser().parseFromString(result, 'text/xml');
+        console.log(data);
 
         const items = data.querySelectorAll("item")
         items.forEach(item => {
@@ -32,7 +33,7 @@ export class NflNewsComponent implements OnInit {
 
           newsItem.title = this.parseLineItem(item, "title");
           newsItem.description = this.parseLineItem(item, "description");
-          newsItem.image = this.parseLineItem(item, "image");
+          newsItem.image = item.getElementsByTagName('enclosure')[0].getAttribute('url');
           newsItem.link = this.parseLineItem(item, "link");
           newsItem.date = this.parseLineItem(item, "date");
 

@@ -6,3 +6,53 @@
     color: white;
     text-decoration: none;
 }
+
+.container {
+    position: relative;
+}
+
+.center {
+    display: block;
+    justify-content: center;
+}
+
+.full-width {
+    height: auto;
+    width: auto;
+    max-height: 55vh;
+    max-width: 90vw;
+    margin: auto;
+    display: flex;
+}
+
+@media only screen and (min-width: 576px) {
+    .full-width {
+        margin: auto;
+        width: auto;
+        height: 60vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .full-width {
+        min-height: 0;
+        height: 60vh;
+    }
+}
+
+.full-caption {
+    text-align: center;
+    color: white;
+}
+
+@media only screen and (min-width: 576px) {
+    .full-caption {
+        text-align: center;
+        color: white;
+        background: rgb(0, 0, 0, 0.40);
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+}
