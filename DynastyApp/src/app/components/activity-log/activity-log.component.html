@@ -8,8 +8,6 @@
                 </div>
                 <div class="row pb-2 tab" *ngSwitchCase="COMMISH" [innerHtml]="activity.commishPowers.description">
                 </div>
-                <div class="row pb-2 tab" *ngSwitchCase="COMMISH" [innerHtml]="activity.commishPowers.description">
-                </div>
                 <div class="row pb-2 tab" *ngSwitchCase="SETTING" [innerHtml]="activity.settings.description"></div>
                 <div class="row pb-2 tab" *ngSwitchCase="RESERVE_CHANGE"
                     [innerHtml]="reserveChangeAction(activity.reserveChange)"></div>
@@ -21,9 +19,6 @@
                 <div class="row pb-2 tab" *ngSwitchCase="DROP_ACTION" [innerHtml]="waiverAction(activity.transaction)">
                 </div>
                 <div class="row pb-2 tab" *ngSwitchCase="CLAIM_ACTION" [innerHtml]="waiverAction(activity.transaction)">
-                </div>
-                <div class="row pb-2" *ngSwitchCase="">
-
                 </div>
             </div>
         </div>

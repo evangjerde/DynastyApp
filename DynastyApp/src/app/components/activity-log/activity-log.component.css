@@ -5,4 +5,5 @@
 
 .tab {
     margin-left: 1rem;
+    max-width: max-content;
 }
