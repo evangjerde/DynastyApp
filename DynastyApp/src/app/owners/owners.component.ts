@@ -18,7 +18,7 @@ export class OwnersComponent implements OnInit {
       name: 'Evan',
       team: `Evan's Pick Bank`,
       photoUrl: '../../assets/evan.jpeg',
-      bio: 'Myyyyy Name is Eeeeeevvvvaaaaaaaannnnn'
+      bio: 'Myyyyy Name is Eeeeeevvvvaaaaaaaannnnn...definitely a tool'
     },
     {
       name: 'Tyler aka Tubby',
@@ -36,7 +36,7 @@ export class OwnersComponent implements OnInit {
       name: 'Seamus',
       team: `Monaghan Manor`,
       photoUrl: '',
-      bio: '<strong>Fill this in</strong>'
+      bio: `This isn't a futbol league?`
     },
     {
       name: 'David',
@@ -60,13 +60,13 @@ export class OwnersComponent implements OnInit {
       name: 'Logan',
       team: `Mahome Boy’s`,
       photoUrl: '',
-      bio: '< strong > Fill this in </strong>'
+      bio: 'Will owe JJ back massages in 5 years'
     },
     {
       name: 'Wally',
       team: `Stop Giving A$$ Trades`,
       photoUrl: '',
-      bio: 'Basketball Basketball Basketball.  Basketball.  Basketball Basketball.'
+      bio: 'Basketball Basketball Basketball.  Basketball.  I jump higher than the Easter Bunny.'
     },
     {
       name: 'Herb',
