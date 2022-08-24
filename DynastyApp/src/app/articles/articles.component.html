@@ -8,7 +8,8 @@
     <div class="container articles col-10 mb-5">
         <ul>
             <li *ngFor="let article of articles">
-                <a [routerLink]="article.path">{{ article.title }}</a>
+                <a *ngIf="!article.path.includes('http')" [routerLink]="article.path">{{ article.title }}</a>
+                <a *ngIf="article.path.includes('http')" [href]="article.path" target="_blank">{{ article.title }}</a>
             </li>
         </ul>
     </div>
