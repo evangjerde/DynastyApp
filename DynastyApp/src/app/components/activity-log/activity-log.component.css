@@ -2,8 +2,12 @@
     background-color: silver;
 }
 
+.contain {
+    box-sizing: border-box;
+    overflow: hidden;
+}
 
 .tab {
+    word-wrap: break-word;
     margin-left: 1rem;
-    max-width: max-content;
 }

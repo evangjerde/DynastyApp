@@ -1,7 +1,7 @@
 <ng-container *ngIf="activities" class="activity-container">
     <div class="container-fluid text-body">
         <div *ngFor="let activity of activities">
-            <div class="row mb-2 trade-action" [ngSwitch]="activity.activityType">
+            <div class="row mb-2 trade-action contain" [ngSwitch]="activity.activityType">
                 <div [innerHtml]="activity.timeEpochMilli | convertTimestamp"></div>
                 <div class="row pb-2 tab" *ngSwitchCase="TRADE_BLOCK"
                     [innerHtml]="tradeBlockAction(activity.tradeBlock)">
