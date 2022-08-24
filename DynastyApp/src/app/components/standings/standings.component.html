@@ -1,0 +1,19 @@
+<div class="outer">
+    <ng-container *ngIf="standings">
+        <ng-container *ngFor="let division of standings.divisions">
+            <h2 class="text-white" [innerHtml]="division.name"></h2>
+            <div class="row">
+                <div class="heading-row d-flex">
+                    <div class="col-2 center" [innerHtml]="'Rank'"></div>
+                    <div class="col-4" [innerHtml]="'Team Name'"></div>
+                    <div class="col-2 center" [innerHtml]="'Record'"></div>
+                    <div class="col-2 center" [innerHtml]="'Points For'"></div>
+                    <div class="col-2 center" [innerHtml]="'Points Against'"></div>
+                </div>
+            </div>
+            <div class="row standing-row" *ngFor="let team of division.teams">
+                <app-standing [team]="team"></app-standing>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

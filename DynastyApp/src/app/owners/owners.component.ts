@@ -91,9 +91,8 @@ export class OwnersComponent implements OnInit {
   constructor(private leagueService: LeagueService) { }
 
   ngOnInit(): void {
-    this.leagueService.getLeagueTeams().subscribe(result => {
+    this.leagueService.getStandings().subscribe(result => {
       this.standings = result;
-      console.log(this.standings);
     })
   }
 

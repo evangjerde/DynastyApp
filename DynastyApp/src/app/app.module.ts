@@ -21,6 +21,8 @@ import { NflPageComponent } from './nfl-page/nfl-page.component';
 import { TradeActionComponent } from './components/activity-log/trade-action/trade-action.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { Rankings2022PsComponent } from './articles/rankings2022-ps/rankings2022-ps.component';
+import { StandingsComponent } from './components/standings/standings.component';
+import { StandingComponent } from './components/standings/standing/standing.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { Rankings2022PsComponent } from './articles/rankings2022-ps/rankings2022
     NflPageComponent,
     TradeActionComponent,
     ArticlesComponent,
-    Rankings2022PsComponent
+    Rankings2022PsComponent,
+    StandingsComponent,
+    StandingComponent
   ],
   imports: [
     HttpClientModule,

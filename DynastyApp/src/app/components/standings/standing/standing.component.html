@@ -1,0 +1,7 @@
+<div class="outer d-flex">
+    <div class="col-2 center" [innerHtml]="team.recordDivision.rank"></div>
+    <div class="col-4" [innerHtml]="team.name"></div>
+    <div class="col-2 center" [innerHtml]="team.recordOverall.formatted + ' (' + team.recordOverall.winPercentage.formatted + ')'"></div>
+    <div class="col-2 center" [innerHtml]="team.pointsFor.formatted"></div>
+    <div class="col-2 center" [innerHtml]="team.pointsAgainst.formatted"></div>
+</div>

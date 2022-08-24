@@ -20,8 +20,8 @@ export class AppController {
     return this.appService.getNewsFeed();
   }
 
-  @Get('teams')
-  getTeams() {
-    return this.appService.getTeams();
+  @Get('standings')
+  getStandings() {
+    return this.appService.getStandings();
   }
 }

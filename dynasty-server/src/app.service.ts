@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 
 import { AxiosResponse } from 'axios';
-import { map } from 'rxjs';
+import { catchError, map } from 'rxjs';
 
 @Injectable()
 export class AppService {
@@ -23,7 +23,7 @@ export class AppService {
     );
   }
 
-  getTeams(): any {
+  getStandings(): any {
     return this.httpService.get(`${this.ffBaseUrl}/FetchLeagueStandings?sport=NFL&league_id=309764`).pipe(
       map((axiosResponse: AxiosResponse<any>) => {
         return axiosResponse.data;
