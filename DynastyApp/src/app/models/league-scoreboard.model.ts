@@ -26,4 +26,8 @@ export interface TeamScore {
     score: FormattedString;
     yetToPlay: number;
     yetToPlayPosition: string[];
+    inPlay: number;
+    inPlayPosition: string[];
+    alreadyPlayed: number;
+    alreadyPlayedPositions: string[];
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LeagueService } from 'src/app/services/league.service';
-import { FleaflickerScoreboard, Matchup } from './league-scoreboard.model';
+import { FleaflickerScoreboard, Matchup } from '../../models/league-scoreboard.model';
 
 @Component({
   selector: 'app-league-scoreboard',

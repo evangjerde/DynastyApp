@@ -1,1 +1,13 @@
-<p>matchup works!</p>
+<div class="container-fluid matchup-container">
+    <div class="col-12 col-sm-5 col-md-12 col-lg-5">
+        <h3 class="mb-0" [innerHtml]="matchup.home.name + ' (' + matchup.home.recordOverall.formatted + ')'"></h3>
+        <p class="mt-0" [innerHtml]="getFormattedScores('home')"></p>
+    </div>
+    <div class="col center">
+        <h3 [innerHtml]="'Vs.'"></h3>
+    </div>
+    <div class="col-12 col-sm-5 col-md-12 col-lg-5">
+        <h3 class="mb-0" [innerHtml]="matchup.away.name + ' (' + matchup.away.recordOverall.formatted + ')'"></h3>
+        <p class="mt-0" [innerHtml]="getFormattedScores('away')"></p>
+    </div>
+</div>

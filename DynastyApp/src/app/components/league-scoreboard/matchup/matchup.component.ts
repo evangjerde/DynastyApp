@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Matchup } from '../league-scoreboard.model';
+import { Matchup } from '../../../models/league-scoreboard.model';
 
 @Component({
   selector: 'app-matchup',
@@ -13,6 +13,12 @@ export class MatchupComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.matchup);
+  }
+
+  getFormattedScores(team: 'home' | 'away'): string {
+    const teamKey = `${team}Score`;
+    return `points: ${this.matchup[teamKey].score.formatted} <br />proj: ${this.matchup[teamKey].projected.formatted}<br />yet to play: ${this.matchup[teamKey].yetToPlay}`;
   }
 
 }

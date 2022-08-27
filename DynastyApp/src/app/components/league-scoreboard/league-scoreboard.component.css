@@ -5,3 +5,8 @@
 .non-divisional-matchup {
     background-color: silver;
 }
+
+.matchup-item {
+    border-radius: 0.25em;
+    margin-bottom: 1rem;
+}
