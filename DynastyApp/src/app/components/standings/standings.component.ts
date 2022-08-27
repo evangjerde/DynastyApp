@@ -20,5 +20,9 @@ export class StandingsComponent implements OnInit {
     });
   }
 
+  isLastTeam(teams: number, index: number) {
+    return teams - 1 === index ? 'last-team' : '';
+  }
+
 
 }

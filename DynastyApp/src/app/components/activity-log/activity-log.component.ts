@@ -157,7 +157,7 @@ export class ActivityLogComponent implements OnInit {
     let claimString = '';
 
     if (add) {
-      if (claims) {
+      if (claims && claims.length) {
         claimString = 'Other claims were';
         claims.forEach(elem => {
           claimString = `${claimString} ${elem.team.name},`;

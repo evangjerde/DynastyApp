@@ -1,17 +1,18 @@
 <div class="container-fluid outer">
     <ng-container *ngIf="standings">
-        <ng-container *ngFor="let division of standings.divisions">
+        <ng-container class="all-corners" *ngFor="let division of standings.divisions">
             <h2 class="text-white" [innerHtml]="division.name"></h2>
             <div class="row">
                 <div class="d-flex heading-row">
-                    <div class="col-2 center" [innerHtml]="'Rank'"></div>
-                    <div class="col-4" [innerHtml]="'Team Name'"></div>
-                    <div class="col-2 center" [innerHtml]="'Record'"></div>
-                    <div class="col-2 center" [innerHtml]="'Points For'"></div>
-                    <div class="col-2 center" [innerHtml]="'Points Against'"></div>
+                    <div class="col-1 center" [innerHtml]="'Rk'"></div>
+                    <div class="col-5 center border-left" [innerHtml]="'Team Name'"></div>
+                    <div class="col-2 center border-left" [innerHtml]="'Record'"></div>
+                    <div class="col-2 center border-left" [innerHtml]="'Points For'"></div>
+                    <div class="col-2 center border-left" [innerHtml]="'Points Against'"></div>
                 </div>
             </div>
-            <div class="row standing-row" *ngFor="let team of division.teams">
+            <div class="row standing-row border-top" *ngFor="let team of division.teams; let i = index"
+                [ngClass]="isLastTeam(division.teams.length, i)">
                 <app-standing [team]="team"></app-standing>
             </div>
         </ng-container>
