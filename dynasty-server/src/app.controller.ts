@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { get } from 'http';
 import { AppService } from './app.service';
 
 @Controller('api')
@@ -13,6 +14,11 @@ export class AppController {
   @Get('activity')
   getActivityFeed() {
     return this.appService.getActivity();
+  }
+
+  @Get('leagueScores')
+  getLeagueScores() {
+    return this.appService.getLeagueScores();
   }
 
   @Get('newsFeed')

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Owner } from 'src/app/models/owner.model';
-import { FleaflickerStandingTeam } from '../owners.model';
+import { FleaflickerStandingTeam } from 'src/app/models/fleaflicker.model';
 
 @Component({
   selector: 'app-owner',

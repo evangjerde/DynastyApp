@@ -31,6 +31,14 @@ export class AppService {
     );
   }
 
+  getLeagueScores(): any {
+    return this.httpService.get(`${this.ffBaseUrl}/FetchLeagueScoreboard?sport=NFL&league_id=309764`).pipe(
+      map((axiosResponse: AxiosResponse<any>) => {
+        return axiosResponse.data;
+      })
+    );
+  }
+
   getNewsFeed(): any {
     return this.httpService.get(`${this.espnBaseUrl}/rss/nfl/news`).pipe(
       map((axiosResponse: AxiosResponse<any>) => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FleaflickerStandings } from 'src/app/owners/owners.model';
+import { FleaflickerStandings } from 'src/app/models/fleaflicker.model';
 import { LeagueService } from 'src/app/services/league.service';
 
 @Component({
@@ -16,7 +16,6 @@ export class StandingsComponent implements OnInit {
   ngOnInit(): void {
     this.leagueService.getStandings().subscribe(result => {
       this.standings = result;
-      console.log(this.standings);
     });
   }
 

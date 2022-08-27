@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FleaflickerStandingTeam } from 'src/app/owners/owners.model';
+import { FleaflickerStandingTeam } from 'src/app/models/fleaflicker.model';
 
 @Component({
   selector: 'app-standing',

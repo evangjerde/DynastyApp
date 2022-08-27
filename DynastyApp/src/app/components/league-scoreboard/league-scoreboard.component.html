@@ -1,0 +1,6 @@
+<div class="container-fluid outer-container pt-5">
+    <h2 class="text-white">Leauge Scores</h2>
+    <div class="row" [ngClass]="isDivisionalMatchup(matchup.isDivisional)" *ngFor="let matchup of games">
+        <app-matchup [matchup]="matchup"></app-matchup>
+    </div>
+</div>

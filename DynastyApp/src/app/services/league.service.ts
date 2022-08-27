@@ -19,4 +19,8 @@ export class LeagueService {
   getStandings(): Observable<any> {
     return this.http.get(`${this.baseUrl}/standings`);
   }
+
+  getLeagueScoreboard(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/leagueScores`);
+  }
 }

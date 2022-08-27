@@ -23,6 +23,8 @@ import { ArticlesComponent } from './articles/articles.component';
 import { Rankings2022PsComponent } from './articles/rankings2022-ps/rankings2022-ps.component';
 import { StandingsComponent } from './components/standings/standings.component';
 import { StandingComponent } from './components/standings/standing/standing.component';
+import { LeagueScoreboardComponent } from './components/league-scoreboard/league-scoreboard.component';
+import { MatchupComponent } from './components/league-scoreboard/matchup/matchup.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { StandingComponent } from './components/standings/standing/standing.comp
     ArticlesComponent,
     Rankings2022PsComponent,
     StandingsComponent,
-    StandingComponent
+    StandingComponent,
+    LeagueScoreboardComponent,
+    MatchupComponent
   ],
   imports: [
     HttpClientModule,

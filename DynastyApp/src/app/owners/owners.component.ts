@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Owner } from '../models/owner.model';
 import { LeagueService } from '../services/league.service';
-import { FleaflickerStandings } from './owners.model';
+import { FleaflickerStandings } from 'src/app/models/fleaflicker.model';
 
 @Component({
   selector: 'app-owners',

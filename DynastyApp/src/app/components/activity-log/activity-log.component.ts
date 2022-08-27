@@ -65,7 +65,6 @@ export class ActivityLogComponent implements OnInit {
           formattedActivities.push(formattedActivity);
           break;
         case this.CLAIM_ACTION:
-          console.log(activity);
           formattedActivity.transaction = activity.transaction;
           formattedActivities.push(formattedActivity);
           break;
